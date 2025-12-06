@@ -10,8 +10,9 @@ show_excerpts: true # set to true to show excerpts on the homepage
 sass:
   sass_dir: _sass
 plainwhite:
-  name: Cheojin Park
-  tagline: Embedded Software Developer. Engineer
+
+  name: Cheoljin Park
+  tagline: Embedded Engineer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
@@ -44,7 +45,17 @@ plainwhite:
     #   instance: example.com
     # - username: jekyll2
     #   instance: example.com
+  navigation:
+    # 이전에 설정한 My Work 등 기존 메뉴
+    - title: My Work
+      url: "/my-work"
 
+    # 새로운 카테고리 메뉴 추가 (대소문자 및 슬래시 주의)
+    - title: JavaScript
+      url: "/category/javascript/" # jekyll-archives가 생성한 경로를 지정
+
+    - title: NodeJS
+      url: "/category/nodejs/"
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
 #header_pages:
@@ -56,5 +67,14 @@ remote_theme: samarsault/plainwhite-jekyll
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-remote-theme
+#  - jekyll-remote-theme
 #  - jekyll-feed
+
+jekyll-archives:
+  enabled:
+    - categories # 카테고리별 페이지 활성화
+  layout: 'archive' # 사용할 레이아웃 지정 (테마에 따라 다름)
+  permalinks:
+    category: '/category/:name/' # 접속 주소 지정 (예: /category/Javascript/)
+
+baseurl: ""
